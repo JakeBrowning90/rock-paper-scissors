@@ -8,22 +8,21 @@ function game() {
     for (i = 0; i < 5; i++) {
         console.log("Round " + (i  + 1))
         roundWinner = playRound()
-        if (roundWinner = "user") {
+        if (roundWinner == "user") {
             userScore++ 
         }
-        else if (roundWinner = "com") {
+        else if (roundWinner == "com") {
             comScore++
-        }
-        else {
-            continue
-        }
+        }        
     }
+    console.log(`Your score: ${userScore} / COM score: ${comScore}`)
     if (userScore > comScore) {
         console.log("You win!")
     }
     else {
         console.log("COM wins!") 
     }
+    
 }
 
 function getComputerChoice() {
@@ -45,23 +44,22 @@ function getUserChoice() {
 
 function playRound(userPlay, comPlay) {
     let winner
-    userPlay = getUserChoice()
-    console.log("You play: " + userPlay)
-    comPlay = getComputerChoice()
-    console.log("COM plays: " + comPlay)
-    if (userPlay == comPlay) {
-        console.log("Tie")
-        winner = "none"
+    while (userPlay == comPlay) {
+        userPlay = getUserChoice()
+        console.log("You play: " + userPlay)
+        comPlay = getComputerChoice()
+        console.log("COM plays: " + comPlay)
+        if (userPlay == comPlay) {
+            console.log("Tied, do-over!")
+        }
+    }
+    if (userPlay == "PAPER" && comPlay == "ROCK" || userPlay == "SCISSORS" && comPlay == "PAPER" || userPlay == "ROCK" && comPlay == "SCISSORS") {
+        console.log("Point to player: " + userPlay + " beats " + comPlay)
+        winner = "user"
     }
     else {
-        if (userPlay == "PAPER" && comPlay == "ROCK" || userPlay == "SCISSORS" && comPlay == "PAPER" || userPlay == "ROCK" && comPlay == "SCISSORS") {
-            console.log("Point to player: " + userPlay + " beats " + comPlay)
-            winner = "user"
-        }
-        else {
-            console.log("Point to COM: " + comPlay + " beats " + userPlay)
-            winner = "com"
-        }
+        console.log("Point to COM: " + comPlay + " beats " + userPlay)
+        winner = "com"
     }
     return winner
 }
