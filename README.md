@@ -1,3 +1,5 @@
 # rock-paper-scissors
 
-This is a basic rock-paper-scissors game played in console. I made my prototype in Python for ease of testing the logic. The project prompt was not specific about the requirement, so I have the game play through 5 whole rounds instead of first to 3 wins. I also do not count ties for advancing rounds.
+6 Oct 2022 Update: This rock-paper-scissors game is now played in browser using event listers tied to each of the 3 buttons on screen. I also included DOM manipulation to update the scoreboard, show a winner, and reset the field when the player presses a button after a winner is declared. As a personal touch, I implemented a flexbox-heavy design with rounded, pastel-coloured elements inspired by the "Animal Crossing" video game. The header and footer give the page a friendly "ice cream sandwich" look.
+
+OLD: This is a basic rock-paper-scissors game played in console. I made my prototype in Python for ease of testing the logic. The project prompt was not specific about the requirement, so I have the game play through 5 whole rounds instead of first to 3 wins. I also do not count ties for advancing rounds.
