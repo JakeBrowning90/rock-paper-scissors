@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Rock/Paper/Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <h1>Rock/Paper/Scissors</h1>
-    <script src="script.js"></script>
+    <div class="sandwich head">Porfolio Link (TBA)</div>
+    <div class="content">
+        <h1 class="firstLevel title">Rock-Paper-Scissors</h1>
+        <div class="firstLevel playfield">
+            <div class="half">
+                <button id="rock" value="ROCK">Rock</button>
+                <button id="paper" value="PAPER">Paper</button>
+                <button id="scissors" value="SCISSORS">Scissors</button>
+            </div>
+            <div class="half">
+                <div class="right top">
+                    <div class="plays">
+                        <p id="feedPlayer">Your hand:</p>
+                        <p id="feedCom">COM's hand:</p>
+                    </div>
+                    <p class="result" id="feedResult"></p>
+                    <p class="score" id="feedScore">First to 5 wins</p>
+                </div> 
+                <div class="right bottom">   
+                    <h2 class="banner" id="banner"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sandwich foot">Created by Jake Browning, 2022</div>
 </body>
 </html>

@@ -1,28 +1,51 @@
-console.log("Let's play Rock-Paper-Scissors!")
+let winner, userPlay, comPlay;
+let userScore = 0; 
+let comScore = 0;
 
-game()
-
-function game() {
-    let userScore = 0
-    let comScore = 0
-    for (i = 0; i < 5; i++) {
-        console.log("Round " + (i  + 1))
-        roundWinner = playRound()
-        if (roundWinner == "user") {
-            userScore++ 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        winner = playRound(button.value);
+        document.getElementById("banner").textContent = "";
+        if (winner == "user") {
+            userScore++;
         }
-        else if (roundWinner == "com") {
-            comScore++
-        }        
+        else if (winner == "com") {
+            comScore++;
+        }
+        document.getElementById("feedScore").textContent = `Your score: ${userScore} / 5 | COM score: ${comScore} / 5`;
+        if (userScore > 4) {
+            document.getElementById("banner").textContent = "You win!";
+            resetGame()
+            return;
+        }
+        else if (comScore > 4) {
+            document.getElementById("banner").textContent = "COM wins!";
+            resetGame()
+            return;
+        }
+    });
+});
+
+function playRound(buttonChoice) {
+    userPlay = buttonChoice;
+    let winner;
+    document.getElementById("feedPlayer").textContent = `You play: ${userPlay}`;
+    comPlay = getComputerChoice()
+    document.getElementById("feedCom").textContent = `COM plays: ${comPlay}`;
+    if (userPlay == comPlay) {
+        document.getElementById("feedResult").textContent = "Tied, do-over!";
+        winner = "none";
     }
-    console.log(`Your score: ${userScore} / COM score: ${comScore}`)
-    if (userScore > comScore) {
-        console.log("You win!")
+    else if (userPlay == "PAPER" && comPlay == "ROCK" || userPlay == "SCISSORS" && comPlay == "PAPER" || userPlay == "ROCK" && comPlay == "SCISSORS") {
+        document.getElementById("feedResult").textContent = `Point to Player: ${userPlay} beats ${comPlay}`;
+        winner = "user";
     }
     else {
-        console.log("COM wins!") 
+        document.getElementById("feedResult").textContent = `Point to COM: ${comPlay} beats ${userPlay}`;
+        winner = "com";
     }
-    
+    return winner;
 }
 
 function getComputerChoice() {
@@ -32,34 +55,7 @@ function getComputerChoice() {
     return comPlay
 }
 
-function getUserChoice() {
-    let userPlay = prompt("Choose your hand: ")
-    userPlay = userPlay.toUpperCase()
-    while (userPlay != "PAPER" && userPlay != "SCISSORS" && userPlay != "ROCK") {
-        userPlay = prompt("Try again: ")
-        userPlay = userPlay.toUpperCase()
-    }
-    return userPlay  
-}
-
-function playRound(userPlay, comPlay) {
-    let winner
-    while (userPlay == comPlay) {
-        userPlay = getUserChoice()
-        console.log("You play: " + userPlay)
-        comPlay = getComputerChoice()
-        console.log("COM plays: " + comPlay)
-        if (userPlay == comPlay) {
-            console.log("Tied, do-over!")
-        }
-    }
-    if (userPlay == "PAPER" && comPlay == "ROCK" || userPlay == "SCISSORS" && comPlay == "PAPER" || userPlay == "ROCK" && comPlay == "SCISSORS") {
-        console.log("Point to player: " + userPlay + " beats " + comPlay)
-        winner = "user"
-    }
-    else {
-        console.log("Point to COM: " + comPlay + " beats " + userPlay)
-        winner = "com"
-    }
-    return winner
+function resetGame() {
+    userScore = 0; 
+    comScore = 0;
 }

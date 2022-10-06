@@ -1,0 +1,127 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-between;
+    flex: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    background-color: #fff2d0;
+}
+
+p {
+    margin: 0;
+    padding: 0;   
+}
+
+h2 {
+    padding: 10px;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background-color: #add8e6;
+    box-shadow: 0 4px #999;
+  }
+
+button:hover {
+    background-color: #cfebf5;
+}
+
+button:active {
+    background-color: #cfebf5;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
+
+.sandwich {
+    color: #f5f4e9;
+    background-color: #f05771;
+    padding: 10px;
+}
+
+.head {
+    border-radius: 0px 0px 15px 15px;
+}
+
+.foot {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.content {
+    flex: 1;
+    margin: 80px 100px;
+    padding: 10px;
+    background-color: #f5f4e9;
+    border-radius: 15px;
+    align-content: stretch;
+    text-align: center;
+}
+
+.firstLevel {
+    margin: 20px;
+    border-radius: 15px;
+    flex: 1;
+}
+
+.title {
+    flex: 1;
+    padding: 15px;
+    background-color: lightpink;
+}
+.playfield {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    gap: 15px;
+}
+.half {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: space-between;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+    gap: 4px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    flex: 1;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #c5f2a0;
+}
+
+.result {
+    font-style: italic;
+} 
+
+.bottom {
+    justify-content: center;
+    align-items: center;
+}
+
+.plays {
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner {
+    margin: 0;
+}
